@@ -1,25 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BlindCount" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdU-6S-Ur8">
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="52"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="HGQ-Yu-knI" appends="YES" id="b3n-Zc-IVO"/>
+                                    <outletCollection property="gestureRecognizers" destination="Nx4-JQ-vLB" appends="YES" id="FKz-aH-0le"/>
+                                    <outletCollection property="gestureRecognizers" destination="9LF-Fp-Ocn" appends="YES" id="B77-az-rg5"/>
+                                    <outletCollection property="gestureRecognizers" destination="0PC-fL-sjr" appends="YES" id="DZP-0t-XhO"/>
+                                </connections>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="GdU-6S-Ur8" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="hIV-xN-WFg"/>
+                            <constraint firstItem="GdU-6S-Ur8" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="lxH-5c-vKA"/>
+                            <constraint firstItem="GdU-6S-Ur8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ndH-mL-mm3"/>
+                            <constraint firstItem="GdU-6S-Ur8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zrI-4K-fnb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="countLabel" destination="GdU-6S-Ur8" id="Rrk-zw-m9n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="HGQ-Yu-knI">
+                    <connections>
+                        <action selector="tap:" destination="BYZ-38-t0r" id="8bE-gz-8RQ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.29999999999999999" id="Nx4-JQ-vLB">
+                    <connections>
+                        <action selector="longPress:" destination="BYZ-38-t0r" id="LOc-no-fgW"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="9LF-Fp-Ocn">
+                    <connections>
+                        <action selector="swiped:" destination="BYZ-38-t0r" id="wRf-g3-CQD"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="0PC-fL-sjr">
+                    <connections>
+                        <action selector="swiped:" destination="BYZ-38-t0r" id="iXt-QB-LN4"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="63" y="25"/>
         </scene>
     </scenes>
 </document>
