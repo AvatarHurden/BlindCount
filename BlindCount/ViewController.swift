@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         }
     }
     
+    var spoke: Bool = false
     let speechSynthesizer = AVSpeechSynthesizer()
     
     var waitingConfirmation = false
@@ -71,8 +72,12 @@ class ViewController: UIViewController {
     }
     
     func decrementCount() {
-        count = count - 1
-        AudioServicesPlaySystemSound(1521)
+        if count > 0 {
+            count = count - 1
+            AudioServicesPlaySystemSound(1520)
+        } else {
+            AudioServicesPlaySystemSound(1521)
+        }
         if waitingConfirmation {
             waitingTimer.invalidate()
             waitingConfirmation = false
@@ -100,13 +105,13 @@ class ViewController: UIViewController {
 
     @IBAction func longPress(_ sender: UILongPressGestureRecognizer) {
         
-        if speechSynthesizer.isSpeaking {
-            return
+        if sender.state == .ended {
+            spoke = false
+        } else if !spoke {
+            let speechUtterance = AVSpeechUtterance(string: countLabel.text!)
+            spoke = true
+            speechSynthesizer.speak(speechUtterance)
         }
-        
-        let speechUtterance = AVSpeechUtterance(string: countLabel.text!)
-        print(countLabel.text!)
-        speechSynthesizer.speak(speechUtterance)
     }
     
     @IBAction func swiped(_ sender: UISwipeGestureRecognizer) {

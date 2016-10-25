@@ -49,7 +49,7 @@
                         <action selector="tap:" destination="BYZ-38-t0r" id="8bE-gz-8RQ"/>
                     </connections>
                 </tapGestureRecognizer>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.29999999999999999" id="Nx4-JQ-vLB">
+                <pongPressGestureRecognizer allowableMovement="1" minimumPressDuration="0.5" id="Nx4-JQ-vLB">
                     <connections>
                         <action selector="longPress:" destination="BYZ-38-t0r" id="LOc-no-fgW"/>
                     </connections>
