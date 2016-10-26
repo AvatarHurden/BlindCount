@@ -87,16 +87,13 @@ class ViewController: UIViewController {
     var vibrateTimer: Timer!
     var vibrateCount: Int!
     func resetCount() {
-        count = 0
         
+        vibrateTimer = Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) {_ in
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+            self.count = 0
+        }
+        RunLoop.current.add(vibrateTimer, forMode: .defaultRunLoopMode)
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-        sleep(1)
-        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-//        vibrateTimer = Timer(fire: Date().addingTimeInterval(0.5), interval: 0, repeats: false) {_ in
-//            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-//        }
-//        RunLoop.current.add(vibrateTimer, forMode: .defaultRunLoopMode)
-
     }
 
     @IBAction func tap(_ sender: UITapGestureRecognizer) {
@@ -116,9 +113,9 @@ class ViewController: UIViewController {
     
     @IBAction func swiped(_ sender: UISwipeGestureRecognizer) {
         print(sender.direction)
-        if sender.direction == .left {
+        if sender.direction == .left || sender.direction == .down {
             incrementCount()
-        } else if sender.direction == .right {
+        } else if sender.direction == .right || sender.direction == .up {
             decrementCount()
         }
     }

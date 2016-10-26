@@ -28,6 +28,8 @@
                                     <outletCollection property="gestureRecognizers" destination="Nx4-JQ-vLB" appends="YES" id="FKz-aH-0le"/>
                                     <outletCollection property="gestureRecognizers" destination="9LF-Fp-Ocn" appends="YES" id="B77-az-rg5"/>
                                     <outletCollection property="gestureRecognizers" destination="0PC-fL-sjr" appends="YES" id="DZP-0t-XhO"/>
+                                    <outletCollection property="gestureRecognizers" destination="ILm-dj-NOR" appends="YES" id="aeA-SX-0iZ"/>
+                                    <outletCollection property="gestureRecognizers" destination="nrd-pe-i8V" appends="YES" id="UiN-s3-Rfb"/>
                                 </connections>
                             </label>
                         </subviews>
@@ -62,6 +64,16 @@
                 <swipeGestureRecognizer direction="left" id="0PC-fL-sjr">
                     <connections>
                         <action selector="swiped:" destination="BYZ-38-t0r" id="iXt-QB-LN4"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="ILm-dj-NOR">
+                    <connections>
+                        <action selector="swiped:" destination="BYZ-38-t0r" id="iDF-gB-0f3"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="nrd-pe-i8V">
+                    <connections>
+                        <action selector="swiped:" destination="BYZ-38-t0r" id="68j-ws-v08"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
